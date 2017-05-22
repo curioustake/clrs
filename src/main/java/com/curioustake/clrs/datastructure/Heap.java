@@ -5,10 +5,26 @@ import java.util.List;
 public class Heap<T extends Comparable>{
     List<T> elements;
     long heapSize;
+    HEAP_TYPE heapType;
+
+    public enum HEAP_TYPE{ MAX, MIN};
+
+    public Heap(List<T> elements){
+        this(elements, elements.size(), HEAP_TYPE.MAX);
+    }
 
     public Heap(List<T> elements, long heapSize){
+        this(elements, heapSize, HEAP_TYPE.MAX);
+    }
+
+    public Heap(List<T> elements, HEAP_TYPE heapType){
+        this(elements, elements.size(), heapType);
+    }
+
+    public Heap(List<T> elements, long heapSize, HEAP_TYPE heapType){
         this.elements = elements;
         this.heapSize = heapSize;
+        this.heapType = heapType;
         int lastNonLeafNodeIndex = new Double(Math.ceil(heapSize/2) - 1).intValue();
 
         for(;lastNonLeafNodeIndex>=0;lastNonLeafNodeIndex-- )
@@ -34,11 +50,11 @@ public class Heap<T extends Comparable>{
         }
 
         int maxIndex = leftIndex;
-        if(rightIndex > 0 && elements.get(rightIndex).compareTo(elements.get(leftIndex)) > 0){
+        if(rightIndex > 0 && validateHeapProperty(elements.get(rightIndex), elements.get(leftIndex))){
             maxIndex = rightIndex;
         }
 
-        if(elements.get(maxIndex).compareTo(elements.get(nodeIndex)) > 0){
+        if(validateHeapProperty(elements.get(maxIndex), elements.get(nodeIndex))){
             T temp = elements.get(nodeIndex);
             elements.set(nodeIndex, elements.get(maxIndex));
             elements.set(maxIndex, temp);
@@ -46,6 +62,13 @@ public class Heap<T extends Comparable>{
             //System.out.println("nodeIndex " + nodeIndex + " | " + elements.get(nodeIndex));
             heapify(maxIndex);
         }
+    }
+
+    private boolean validateHeapProperty(T obj1, T obj2){
+        if(heapType.equals(HEAP_TYPE.MAX))
+            return obj1.compareTo(obj2) > 0;
+        else
+            return obj1.compareTo(obj2) < 0;
     }
 
     public T max(){
