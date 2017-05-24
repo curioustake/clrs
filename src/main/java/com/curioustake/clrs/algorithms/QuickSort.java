@@ -13,7 +13,7 @@ public class QuickSort {
         if(list.size() < 2)
             return;
 
-        final int pivotInitialIndex = getPivot(list, startIndex, endIndex);
+        final int pivotInitialIndex = getPivot(startIndex, endIndex);
         swap(list, endIndex, pivotInitialIndex);
 
         final int pivotSortedIndex = partition(list, startIndex, endIndex);
@@ -27,7 +27,7 @@ public class QuickSort {
         }
     }
 
-    protected static <T extends Comparable> int getPivot(List<T> list, final int startIndex, final int endIndex){
+    protected static int getPivot(final int startIndex, final int endIndex){
         return endIndex;
     }
 
@@ -58,7 +58,7 @@ public class QuickSort {
         return pivotSortedIndex;
     }
 
-    private static <T extends Comparable> void swap(List<T> list, final int first, final int second) {
+    protected static <T extends Comparable> void swap(List<T> list, final int first, final int second) {
         T temp = list.get(first);
         list.set(first, list.get(second));
         list.set(second, temp);
