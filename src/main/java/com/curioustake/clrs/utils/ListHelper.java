@@ -18,7 +18,7 @@ public class ListHelper {
         return randomList;
     }
 
-    public static void printList(final String message, final List<Integer> list){
+    public static <T> void printList(final String message, final List<T> list){
         System.out.println(message + Arrays.toString(list.toArray()));
     }
 

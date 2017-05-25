@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 public class RandomizedQuickSort extends QuickSort {
-    
+
     public static <T extends Comparable> void sort(List<T> list) {
         sort(list, 0, list.size()-1);
     }
