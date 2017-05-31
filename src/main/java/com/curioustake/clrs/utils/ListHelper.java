@@ -31,7 +31,7 @@ public class ListHelper {
         return max;
     }
 
-    public static <T extends Comparable> boolean isSortted(final List<T> list){
+    public static <T extends Comparable> boolean isSorted(final List<T> list){
         for (int i=1; i<list.size(); i++){
             if(list.get(i).compareTo(list.get(i-1)) < 0)
                 return false;

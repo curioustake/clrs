@@ -23,7 +23,7 @@ public class HeapSortActivity implements Activity {
         System.out.println("Running Time : " + (endTime - startTime) + " ms");
         //ListHelper.printList("Sorted : ", randomList);
 
-        System.out.println("IsSorted : " + ListHelper.isSortted(randomList));
+        System.out.println("IsSorted : " + ListHelper.isSorted(randomList));
 
     }
 }

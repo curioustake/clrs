@@ -31,7 +31,7 @@ public class MergeSortedListsActivity implements Activity {
         long endTime = System.currentTimeMillis();
         System.out.println("MergedList in " + (endTime - startTime) + "ms");
 
-        System.out.println("MergedList IsSorted : " + ListHelper.isSortted(mergedList));
+        System.out.println("MergedList IsSorted : " + ListHelper.isSorted(mergedList));
 
     }
 }

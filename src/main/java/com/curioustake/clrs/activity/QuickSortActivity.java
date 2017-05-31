@@ -25,7 +25,7 @@ public class QuickSortActivity implements Activity{
         long endTime = System.currentTimeMillis();
         System.out.println("QuickSort Running Time : " + (endTime - startTime) + " ms");
         //ListHelper.printList("Sorted : ", randomList);
-        System.out.println("IsSorted : " + ListHelper.isSortted(randomList) + "\n");
+        System.out.println("IsSorted : " + ListHelper.isSorted(randomList) + "\n");
         randomList.clear();
 
         // RandomizedQuickSort
@@ -35,13 +35,10 @@ public class QuickSortActivity implements Activity{
         endTime = System.currentTimeMillis();
         System.out.println("RandomizedQuickSort Running Time : " + (endTime - startTime) + " ms");
         //ListHelper.printList("Sorted : ", randomList);
-        System.out.println("IsSorted : " + ListHelper.isSortted(randomList) + "\n");
+        System.out.println("IsSorted : " + ListHelper.isSorted(randomList) + "\n");
         randomList.clear();
 
         // HoareQuickSort
-        //Integer []temp = {56, 15, 23, 39, 95, 5, 8, 29, 39, 56, 40, 50, 37, 52, 19, 15, 87, 74, 30, 64};
-        //randomList = Arrays.asList(temp);
-
         randomList = ListHelper.getRandomList(count, max);
         //ListHelper.printList("Random : ", randomList);
         startTime = System.currentTimeMillis();
@@ -49,7 +46,7 @@ public class QuickSortActivity implements Activity{
         endTime = System.currentTimeMillis();
         System.out.println("HoareQuickSort Running Time : " + (endTime - startTime) + " ms");
         //ListHelper.printList("Sorted : ", randomList);
-        System.out.println("IsSorted : " + ListHelper.isSortted(randomList) + "\n");
+        System.out.println("IsSorted : " + ListHelper.isSorted(randomList) + "\n");
         //randomList.clear();
 
         // Collections.sort
@@ -59,7 +56,7 @@ public class QuickSortActivity implements Activity{
         endTime = System.currentTimeMillis();
         System.out.println("Collections.sort Running Time : " + (endTime - startTime) + " ms");
         //ListHelper.printList("Sorted : ", randomList);
-        System.out.println("IsSorted : " + ListHelper.isSortted(randomList) + "\n");
+        System.out.println("IsSorted : " + ListHelper.isSorted(randomList) + "\n");
 
     }
 }

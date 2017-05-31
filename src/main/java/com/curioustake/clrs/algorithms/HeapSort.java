@@ -5,8 +5,7 @@ import com.curioustake.clrs.datastructure.Heap;
 import java.util.List;
 
 public class HeapSort {
-    public static <T extends Comparable> void
-    sort(final List<T> list) {
+    public static <T extends Comparable> void sort(final List<T> list) {
         int heapSize = list.size();
         do {
             Heap<T> heap = new Heap(list, heapSize);
