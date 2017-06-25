@@ -30,7 +30,7 @@ public class MedianOfMediansSelectActivity  implements Activity {
         System.out.println("MedianOfMediansSelect Item : " +  selectedItem);
         System.out.println("MedianOfMediansSelect Running Time : " + (endTime - startTime) + " ms");
 
-        // Control (Collections.sort) select
+        // Control (Collections.sort) median
         startTime = System.currentTimeMillis();
         Collections.sort(randomList);
         //ListHelper.printList("Sorted List :", randomList);

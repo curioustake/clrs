@@ -29,7 +29,7 @@ public class QuickSelectActivity implements Activity {
         System.out.println("QuickSelect Item : " +  selectedItem);
         System.out.println("QuickSelect Running Time : " + (endTime - startTime) + " ms");
 
-        // Control (Collections.sort) select
+        // Control (Collections.sort) median
         startTime = System.currentTimeMillis();
         Collections.sort(randomList);
         //ListHelper.printList("Sorted List :", randomList);

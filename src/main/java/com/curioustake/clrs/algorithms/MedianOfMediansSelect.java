@@ -1,10 +1,9 @@
 package com.curioustake.clrs.algorithms;
 
-import com.curioustake.clrs.utils.ListHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 
+// THIS SHIT IS BROKEN !!!!!FIX IT!!!!!!!!!!!!!
 public class MedianOfMediansSelect {
 
     public static  <T extends Comparable> T select(List<T> list, int orderStatisticToBeSelected){
