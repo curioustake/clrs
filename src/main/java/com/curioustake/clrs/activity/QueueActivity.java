@@ -23,14 +23,13 @@ public class QueueActivity implements Activity{
         Queue<Integer> queue = new Queue<>();
         java.util.Queue<Integer> queue2 = new LinkedList<Integer>();
 
-        int blah = 0;
         Random random = new Random();
         for(Integer i: randomList){
 
             queue.enqueue(i);
             queue2.add(i);
 
-            if(random.nextBoolean() && !queue2.isEmpty()) { blah++;
+            if(random.nextBoolean() && !queue.isEmpty()) {
                 int q1 = queue.dequeue();
                 int q2 = queue2.poll();
 
@@ -43,9 +42,7 @@ public class QueueActivity implements Activity{
             }
         }
 
-        System.out.println("Blah " + blah);
-
-        while(!queue2.isEmpty()){
+        while(!queue.isEmpty()){
             Integer i = queue.dequeue();
             Integer j = queue2.poll();
 

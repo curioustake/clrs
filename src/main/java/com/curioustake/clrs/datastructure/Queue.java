@@ -38,6 +38,18 @@ public class Queue<T> {
         return returnElement;
     }
 
+    public T peek(){
+        if(head == tail){
+            return null;
+        }
+
+        return (T)elements[head];
+    }
+
+    public boolean isEmpty(){
+        return head == tail;
+    }
+
     private int nextHead(){
         if(head < tail) {
             return head+1;
