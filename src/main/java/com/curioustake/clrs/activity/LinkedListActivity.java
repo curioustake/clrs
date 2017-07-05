@@ -36,14 +36,14 @@ public class LinkedListActivity implements Activity{
                 case 1:
 
                     if(!l2.isEmpty()){
-                        boolean b1 = l1.search(i);
+                        boolean b1 = l1.contains(i);
                         boolean b2 = l2.contains(i);
 
                         //System.out.println("Search result for (" + i + ") : " + b1 + "|" + b2);
 
                         if( b1 ^ b2 ) {
-                            System.out.println("Inconsistent search result");
-                            throw new RuntimeException("Inconsistent search result");
+                            System.out.println("Inconsistent contains result");
+                            throw new RuntimeException("Inconsistent contains result");
                         }
                     }
 
@@ -74,13 +74,17 @@ public class LinkedListActivity implements Activity{
         }
 
         while (!l2.isEmpty()){
-            if(!l1.delete((Integer)l2.removeFirst())){
+
+            Integer val1 = l1.removeFirst();
+            Integer val2 = (Integer) l2.removeFirst();
+
+            if(val1.compareTo(val2) != 0){
+                System.out.println("Dump Remove : " + val1 + "|" + val2);
                 System.out.println("Something went wrong for LinkedList Implementation");
                 throw new RuntimeException("Something went wrong for LinkedList Implementation");
             }
         }
 
         System.out.println("LinkedList implementation works fine");
-
     }
 }

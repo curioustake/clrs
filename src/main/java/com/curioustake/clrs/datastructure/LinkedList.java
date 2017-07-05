@@ -11,16 +11,31 @@ public class LinkedList<T extends Comparable> {
         sentinel.key_ = null;
     }
 
-    public void insert(final T key) {
-        Node newNode = new Node();
-        newNode.key_ = key;
-        sentinel.next_.previous_ = newNode;
-        newNode.next_ = sentinel.next_;
-        sentinel.next_ = newNode;
-        newNode.previous_ = sentinel;
+    public boolean insert(final T key) {
+        return addLast(key);
     }
 
-    public boolean search(final T key){
+    public boolean addFirst(final T key) {
+        Node newNode = new Node();
+        newNode.key_= key;
+        newNode.next_ = sentinel.next_;
+        newNode.previous_ = sentinel;
+        sentinel.next_.previous_ = newNode;
+        sentinel.next_ = newNode;
+        return true;
+    }
+
+    public boolean addLast(final T key){
+        Node newNode = new Node();
+        newNode.key_ = key;
+        newNode.next_ = sentinel;
+        newNode.previous_ = sentinel.previous_;
+        sentinel.previous_.next_ = newNode;
+        sentinel.previous_ = newNode;
+        return true;
+    }
+
+    public boolean contains(final T key){
         Node node = searchNode(key);
 
         if(node == null){
@@ -41,6 +56,27 @@ public class LinkedList<T extends Comparable> {
         node.next_.previous_ = node.previous_;
 
         return true;
+    }
+
+    public T removeFirst(){
+        if(sentinel.next_ == sentinel)
+            return null;
+
+        return remove(sentinel.next_);
+
+    }
+
+    public T removelast(){
+        if(sentinel.next_ == sentinel)
+            return null;
+        return remove(sentinel.previous_);
+    }
+
+
+    private T remove(Node nodeToRemove) {
+        nodeToRemove.previous_.next_ = nodeToRemove.next_;
+        nodeToRemove.next_.previous_ = nodeToRemove.previous_;
+        return nodeToRemove.key_;
     }
 
     private Node searchNode(final T key){
