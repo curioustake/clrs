@@ -13,6 +13,30 @@ public class SinglyLinkedList<T extends Comparable>{
         tail.next_ = head;
     }
 
+    /////////////////////////////////// STACK INTERFACE ///////////////////////////////////
+
+    public boolean push(T key){
+        return addFirst(key);
+    }
+
+    public T pop(){
+        return removeFirst();
+    }
+
+    /////////////////////////////////// QUEUE INTERFACE ///////////////////////////////////
+
+    public boolean enqueue(T key) {
+        return addLast(key);
+    }
+
+    public T dequeue() {
+        return removeFirst();
+    }
+
+    public boolean isEmpty(){
+        return (head.next_ == tail);
+    }
+
     public boolean insert(final T key){
         return addLast(key);
     }
@@ -73,6 +97,10 @@ public class SinglyLinkedList<T extends Comparable>{
 
         Node nodeToBeRemoved =  head.next_;
 
+        if(nodeToBeRemoved.next_ == tail){
+            tail.next_ = head;
+        }
+
         head.next_ = nodeToBeRemoved.next_;
 
         return nodeToBeRemoved.key_;
@@ -93,6 +121,24 @@ public class SinglyLinkedList<T extends Comparable>{
         node.next_ = tail;
 
         return nodeToBeRemoved.key_;
+    }
+
+    public void reverse(){
+
+        Node current = head;
+        Node next = head.next_;
+
+        while(next != tail){
+            Node nextNext = next.next_;
+
+            next.next_ = current;
+
+            current = next;
+            next = nextNext;
+        }
+
+        tail = head;
+        head = next;
     }
 
     private Node searchNodeBefore(T key) {
